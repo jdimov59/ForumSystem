@@ -258,6 +258,10 @@
     <Content Include="Scripts\jquery-2.2.3.min.map" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\Data\ForumSystem.Data.Common\ForumSystem.Data.Common.csproj">
+      <Project>{5fbb8298-d8e5-4cc5-ba7d-1de9fa52988a}</Project>
+      <Name>ForumSystem.Data.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Data\ForumSystem.DataModels\ForumSystem.DataModels.csproj">
       <Project>{f601e96b-9801-4fb5-819d-c85aa469ae52}</Project>
       <Name>ForumSystem.DataModels</Name>
