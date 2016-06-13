@@ -175,7 +175,6 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
-    <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -257,6 +256,16 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Scripts\jquery-2.2.3.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Data\ForumSystem.DataModels\ForumSystem.DataModels.csproj">
+      <Project>{f601e96b-9801-4fb5-819d-c85aa469ae52}</Project>
+      <Name>ForumSystem.DataModels</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Data\ForumSystem.Data\ForumSystem.Data.csproj">
+      <Project>{9540aaec-d0ad-4f99-8924-1d93cb73ae4f}</Project>
+      <Name>ForumSystem.Data</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
