@@ -10,6 +10,12 @@ namespace ForumSystem.DataModels
 {
     public class ApplicationUser : IdentityUser, IAuditInfo, IDeletableEntity
     {
+        //This will prevent UserManager.CreateAsync from causing exeption
+        public ApplicationUser()
+        {
+            CreatedOn = DateTime.Now;
+        }
+
         public DateTime CreatedOn { get; set; }
 
         public DateTime? DeletedOn { get; set; }
