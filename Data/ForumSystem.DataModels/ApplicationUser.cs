@@ -5,6 +5,7 @@ using Microsoft.AspNet.Identity.EntityFramework;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using System;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ForumSystem.DataModels
 {
@@ -20,6 +21,7 @@ namespace ForumSystem.DataModels
 
         public DateTime? DeletedOn { get; set; }
 
+        [Index]
         public bool IsDeleted { get; set; }
 
         public DateTime? ModifiedOn { get; set; }
