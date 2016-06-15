@@ -1,6 +1,7 @@
-﻿namespace ForumSystem.Web.Infrastructure.Mapping
+﻿namespace ForumSystem.Web.Mapping
 {
     public interface IMapFrom<T>
+        where T : class
     {
     }
 }

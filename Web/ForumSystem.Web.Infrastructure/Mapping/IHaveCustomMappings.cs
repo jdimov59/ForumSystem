@@ -1,9 +1,9 @@
 ﻿using AutoMapper;
 
-namespace ForumSystem.Web.Infrastructure.Mapping
+namespace ForumSystem.Web.Mapping
 {
     public interface IHaveCustomMappings
     {
-        void CreateMappings(IConfiguration configuration);
+        void CreateMappings(IMapperConfiguration configuration);
     }
 }
