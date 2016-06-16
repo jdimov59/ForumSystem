@@ -5,7 +5,7 @@
     using System.Collections.Generic;
     using System.Linq;
     using System.Reflection;
-    using Web.Mapping;
+
     public class AutoMapperConfig
     {
         public static MapperConfiguration Configuration { get; private set; }

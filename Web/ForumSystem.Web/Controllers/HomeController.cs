@@ -1,11 +1,8 @@
-﻿using ForumSystem.Data;
-using ForumSystem.Data.Common.Repository;
+﻿using ForumSystem.Data.Common.Repository;
 using ForumSystem.DataModels;
-using System;
-using System.Collections.Generic;
-using System.Data.Entity;
+using ForumSystem.Web.Infrastructure.Mapping;
+using ForumSystem.Web.ViewModels.Home;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 
 namespace ForumSystem.Web.Controllers
@@ -27,7 +24,8 @@ namespace ForumSystem.Web.Controllers
 
         public ActionResult Index()
         {
-            var posts = this.posts.All();
+            var posts = this.posts.All()
+                .To<IndexBlogPostViewModel>().ToList();
             return View(posts);
         }
 

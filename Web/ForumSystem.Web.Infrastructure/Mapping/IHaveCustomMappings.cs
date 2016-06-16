@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 
-namespace ForumSystem.Web.Mapping
+namespace ForumSystem.Web.Infrastructure.Mapping
 {
     public interface IHaveCustomMappings
     {
