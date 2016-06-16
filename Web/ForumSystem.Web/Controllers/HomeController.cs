@@ -9,7 +9,8 @@ namespace ForumSystem.Web.Controllers
 {
     public class HomeController : Controller
     {
-        private IRepository<Post> posts;
+        //private IRepository<Post> posts;
+        private IDeletableEntityRepository<Post> posts;
 
         //Poor man's DI
         //public HomeController() 
@@ -17,13 +18,15 @@ namespace ForumSystem.Web.Controllers
         //{
         //}
 
-        public HomeController(IRepository<Post> posts)
+        public HomeController(IDeletableEntityRepository<Post> posts)
         {
             this.posts = posts;
         }
 
         public ActionResult Index()
         {
+            this.posts.ActualDelete(this.posts.GetById(3));
+            this.posts.SaveChanges();
             var posts = this.posts.All()
                 .To<IndexBlogPostViewModel>().ToList();
             return View(posts);
