@@ -23,11 +23,12 @@ namespace ForumSystem.Web.Controllers
         [HttpGet]
         public ActionResult Ask()
         {
-            return Content("GET");
+            var model = new AskInputModel();
+            return View();
         }
 
         [HttpPost]
-        public ActionResult Ask(AskInputModels input)
+        public ActionResult Ask(AskInputModel input)
         {
             return Content("POST");
         }
