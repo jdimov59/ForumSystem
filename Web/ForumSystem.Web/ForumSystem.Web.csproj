@@ -201,10 +201,7 @@
     <Compile Include="App_Start\NinjectWebCommon.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
-    <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
-    <Compile Include="Controllers\AutoController.cs" />
-    <Compile Include="Controllers\CommonApiController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\QuestionsController.cs" />
@@ -214,7 +211,6 @@
     </Compile>
     <Compile Include="InputModels\Questions\AskInputModel.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
-    <Compile Include="Models\Automobile.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\TinyMCEModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -255,7 +251,6 @@
     <Content Include="Scripts\respond.matchmedia.addListener.js" />
     <Content Include="Scripts\respond.matchmedia.addListener.min.js" />
     <Content Include="Scripts\respond.min.js" />
-    <Content Include="Scripts\select2.js" />
     <Content Include="Scripts\tinymce.3.4.5\langs\en.js" />
     <Content Include="Scripts\tinymce.3.4.5\license.txt" />
     <Content Include="Scripts\tinymce.3.4.5\plugins\advhr\css\advhr.css" />
@@ -548,7 +543,6 @@
     <Content Include="Views\Shared\EditorTemplates\tinymce_full_compressed.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\tinymce_full.cshtml" />
     <Content Include="Views\TinyMCESample\Index.cshtml" />
-    <Content Include="Views\Auto\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
