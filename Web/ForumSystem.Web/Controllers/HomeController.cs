@@ -10,7 +10,7 @@ namespace ForumSystem.Web.Controllers
     public class HomeController : Controller
     {
         //private IRepository<Post> posts;
-        private IDeletableEntityRepository<Post> posts;
+        private readonly IDeletableEntityRepository<Post> posts;
 
         //Poor man's DI
         //public HomeController() 

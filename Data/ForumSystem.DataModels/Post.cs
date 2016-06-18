@@ -16,6 +16,10 @@ namespace ForumSystem.DataModels
         [MaxLength(100)]
         public string Title { get; set; }
 
+        public string Content { get; set; }
+
+        //TODO: Author
+
         public bool IsDeleted { get; set; }
 
         public DateTime? DeletedOn { get; set; }
