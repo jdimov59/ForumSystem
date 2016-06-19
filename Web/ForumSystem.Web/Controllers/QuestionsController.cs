@@ -1,7 +1,12 @@
 ﻿using ForumSystem.Data.Common.Repository;
 using ForumSystem.DataModels;
-using ForumSystem.Web.InputModels.Questions;
+using ForumSystem.Web.Infrastructure.Mapping;
+using System.Linq;
 using System.Web.Mvc;
+using ForumSystem.Web.InputModels.Questions;
+using ForumSystem.Web.ViewModels.Questions;
+using AutoMapper.Mappers;
+using ForumSystem.Web.Infrastructure;
 
 namespace ForumSystem.Web.Controllers
 {
@@ -9,9 +14,12 @@ namespace ForumSystem.Web.Controllers
     {
         private readonly IDeletableEntityRepository<Post> posts;
 
-        public QuestionsController(IDeletableEntityRepository<Post> posts)
+        private readonly ISanitizer sanitizer;
+
+        public QuestionsController(IDeletableEntityRepository<Post> posts, ISanitizer sanitizer)
         {
             this.posts = posts;
+            this.sanitizer = sanitizer;
         }
 
         // GET: Questions
@@ -19,9 +27,16 @@ namespace ForumSystem.Web.Controllers
         //questions/1800132/javascript-set-border-radius?page=2&tab=votes#tab-top
         public ActionResult Display(int id, string url, int page = 1)
         {
-            //return View();
-            return Content(id + " " + url);
+            var postViewModel = this.posts.All().Where(x => x.Id == id).To<QuestionDisplayViewModel>().FirstOrDefault();
+
+            if (postViewModel == null)
+            {
+                return this.HttpNotFound("No such post");
+            }
+
+            return this.View(postViewModel);
         }
+
 
         //questions/tagged/javascript
         public ActionResult GetByTag(string tag)
@@ -44,14 +59,14 @@ namespace ForumSystem.Web.Controllers
                 var post = new Post
                 {
                     Title = input.Title,
-                    Content = input.Content,
+                    Content = sanitizer.Sanitize(input.Content),
                     //TODO: Tags
                     //TODO: Author
                 };
 
                 posts.Add(post);
                 posts.SaveChanges();
-                return RedirectToAction("Display", new { id = post.Id, url = "new URL - posle"});
+                return RedirectToAction("Display", new { id = post.Id, url = "new"});
             }
             return View(input);
         }
