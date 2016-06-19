@@ -7,6 +7,7 @@ using ForumSystem.Web.InputModels.Questions;
 using ForumSystem.Web.ViewModels.Questions;
 using AutoMapper.Mappers;
 using ForumSystem.Web.Infrastructure;
+using Microsoft.AspNet.Identity;
 
 namespace ForumSystem.Web.Controllers
 {
@@ -45,6 +46,7 @@ namespace ForumSystem.Web.Controllers
         }
 
         [HttpGet]
+        [Authorize]
         public ActionResult Ask()
         {
             var model = new AskInputModel();
@@ -52,16 +54,20 @@ namespace ForumSystem.Web.Controllers
         }
 
         [HttpPost]
+        [Authorize]
+        [ValidateAntiForgeryToken]
         public ActionResult Ask(AskInputModel input)
         {
             if (ModelState.IsValid)
             {
+                var userId = User.Identity.GetUserId();
+
                 var post = new Post
                 {
                     Title = input.Title,
                     Content = sanitizer.Sanitize(input.Content),
+                    AuthorId = userId
                     //TODO: Tags
-                    //TODO: Author
                 };
 
                 posts.Add(post);
